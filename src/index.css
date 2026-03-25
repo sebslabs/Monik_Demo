@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Premium Navy Blue */
+    --primary: 218 58% 16%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Royal Blue */
+    --secondary: 224 76% 48%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Monik Red */
+    --accent: 355 85% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222 47% 11%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 218 58% 16%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 222 47% 11%;
+
+    /* Custom tokens */
+    --trust-bg: 210 40% 96.1%;
+    --footer-bg: 218 58% 16%;
+    --footer-foreground: 0 0% 100%;
+    --whatsapp: 142 70% 49%;
+    --shadow-premium: 0 4px 20px rgba(0,0,0,0.05);
+    --shadow-premium-hover: 0 10px 30px rgba(0,0,0,0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased selection:bg-accent/20 selection:text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  .card-lift {
+    @apply transition-all duration-500 ease-out bg-white;
+    box-shadow: var(--shadow-premium);
+  }
+  .card-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-premium-hover);
+  }
+
+  .section-fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .section-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stat-number {
+    @apply font-stats font-bold text-primary;
+  }
+
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-sm;
+  }
+}
